@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Assignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(image/1.jpg);
+            background-position: center;
+            background-size: cover;
+            /* height: 100%; */
+        }
+
+
+        .icon {
+            height: 70px;
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+            padding-left: 20px;
+            padding-top: 10px;
+            margin-top: 5px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .srch {
+            font-family: 'Times New Roman';
+            /* width: 200px; */
+            height: 40px;
+            background: transparent;
+            border: 1px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            border-right: none;
+            font-size: 16px;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .btn {
+            width: 100px;
+            height: 40px;
+            background: #ff7200;
+            border: 2px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            color: #000;
+        }
+
+        .btn:focus, .srch:focus {
+            outline: none;
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            padding:3em;
+            gap:20%;
+            height: 100vh;
+            margin: 0 auto !important;
+            color: #fff;
+            position: relative;
+        }
+
+        .content .par {
+            padding-left: 20px;
+            padding-bottom: 25px;
+            font-family: Arial;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+        }
+
+        .content h1 {
+            font-family: 'Times New Roman';
+            font-size: 50px;
+            padding-left: 20px;
+            margin-top: 9%;
+            letter-spacing: 2px;
+        }
+
+        .content .join-us {
+            width: 160px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+
+        .content .join-us a {
+            text-decoration: none;
+            color: #000;
+            transition: .3s ease;
+        }
+
+        .join-us:hover {
+            background-color: #fff;
+        }
+
+        .content span {
+            color: #ff7200;
+            font-size: 65px;
+        }
+
+        .form {
+            width: 100%;
+            max-width: 350px;
+            /* height: auto; */
+            background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+            border-radius: 10px;
+            padding: 25px;
+            z-index: 10;
+        }
+
+        .form h2 {
+            font-family: sans-serif;
+            text-align: center;
+            color: #ff7200;
+            font-size: 22px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 2px;
+            padding: 8px;
+        }
+
+        .form input {
+            width: 100%;
+            height: 35px;
+            background: transparent;
+            border-bottom: 1px solid #ff7200;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            color: #fff;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            font-family: sans-serif;
+        }
+
+        .form input:focus {
+            outline: none;
+        }
+
+        ::placeholder {
+            color: #fff;
+            font-family: Arial;
+        }
+
+        .btnn {
+            width: 100%;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-top: 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.4s ease;
+        }
+
+        .btnn:hover {
+            background: #fff;
+            color: #ff7200;
+        }
+
+        .btnn a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .form .link {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .form .link a {
+            text-decoration: none;
+            color: #ff7200;
+        }
+
+        .form .toggle {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form .toggle button {
+            background: none;
+            border: none;
+            color: #ff7200;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .form .toggle button:hover {
+            text-decoration: underline;
+        }
+        small {
+        visibility: hidden;
+      }
+
+      .form-control.error input {
+        border: 1px solid rgb(243, 15, 15);
+      }
+
+      .form-control.success input {
+        border: 1px solid rgb(15, 243, 15);
+      }
+
+      .form-control.error small {
+        color: red;
+        visibility: visible;
+      }
+
+        .liw {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .icons a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .icons ion-icon {
+            color: #fff;
+            font-size: 30px;
+            padding-left: 14px;
+            padding-top: 5px;
+            transition: 0.3s ease;
+        }
+        
+        .icons ion-icon:hover {
+            color: #ff7200;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    /* background: #333; */
+    color: #fff;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu ul li {
+    margin: 0 1em;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+            color: #ff7200;
+        }
+}
+
+/* Dropdown */
+.service-dropdown {
+    display: none;
+    position: absolute;
+    filter: blur(0.2px);
+    list-style: none;
+    top: 60px;
+    /* left: 60%; */
+    width: 50px;
+    min-width: 100px;
+background: #aaa;    z-index: 2;
+    transition: 2s;
+}
+
+.services-menu:hover .service-dropdown {
+    display: block;
+}
+
+.service-dropdown li {
+    padding: 0.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.service-dropdown li:hover {
+    background: #332;
+}
+
+/* Mobile Styles */
+@media (max-width: 900px) {
+    .content{
+        position: relative;
+        height: 100vh;
+        padding-top: 5em;
+    }
+    .forms-container{
+        flex: 2;
+    }
+    .content-text{
+        flex: 1;
+    }
+}
+@media (max-width: 680px) {
+    .menu-icon{
+        position: absolute;
+        right: 30px;
+    }
+    .content{
+        height: 100vh;
+    }
+    .logo{
+        font-size: 1.5rem;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 45%;
+        background: #333;
+        position: absolute;
+        top: 12%;
+        left: 5%;
+        z-index: 100;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .menu ul li {
+        margin: 0;
+        padding: 1em;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 2.5em;
+        color: #ff7200;
+    }
+    .content-text{
+        display: none;
+    }
+    .search{
+        display: none;
+}
+        .btn:hover {
+            color: #000;
+        }
+
+        .btn:focus, .srch:focus {
+            outline: none;
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            padding:3em;
+            gap:20%;
+            height: 100vh;
+            margin: 0 auto !important;
+            color: #fff;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Usman Adamu</h2>
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                &#9776;
+            </div>
+
+
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li class="services-menu">
+                        <a href="" >SERVICE</a>
+                        <ul class="service-dropdown">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Javascript</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">DESIGN</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+        </div> 
+        <div class="content">
+            <div class="content-text">
+            <h1>Web Design & <br><span>Development</span> <br>Course</h1>
+            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
+                 expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
+                <br> a quae totam ipsa illum minus laudantium?</p>
+                <button class="join-us"><a href="#">JOIN US</a></button>
+            </div>
+            <div class="forms-container">
+                <form action="" id="login-form">
+                <div class="form">
+                    <h2>Login Here</h2>
+                    <div class="form-control">
+                    <input type="text" id="email" placeholder="Enter Email Here">
+                    <small>error message</small>
+                    </div>
+                    <div class="form-control">
+                    <input type="password" id="password" placeholder="Enter Password Here">
+                    <small>error message</small>                    
+                    </div>
+                    <button class="btnn" type="submit">Login</button>
+                    <p class="link">Don't have an account?<br>
+                        <div class="toggle">
+                            <button id="switch-to-signup">Sign Up here</button>
+                        </div>
+                    <!-- <a href="#" id="show-signup">Sign up </a> here</a></p> -->
+                    <div class="liw">Log in with</div>
+                    <div class="icons">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                    </div>
+                    </div>
+                </form>
+                <form action="" id="signUpform"  >
+                    <div class="form" id="signup-form" style="display:none;">
+                    <h2>Sign Up Here</h2>
+                    <div class="form-control">
+                    <input type="text" id="username" placeholder="Enter Username Here">
+                    <small>error message</small>
+                    </div>
+                    <div class="form-control">
+                    <input type="text" id="signUpemail" placeholder="Enter Email Here">
+                    <small>error message</small>     
+                    </div>
+                    <div class="form-control">               
+                    <input type="password" id="signUppassword" placeholder="Enter Password Here">
+                    <small>error message</small>   
+                    </div>    
+                    <div class="form-control">             
+                    <input type="password" id="confirm-password" placeholder="Confirm Password">
+                    <small>This field can't be blank, Please enter Pasword</small>
+                    </div>
+                    <button class="btnn" type="submit">Sign Up</button>
+                    <p class="link">Already have an account?<br>
+                    <a href="#" id="show-login">Login </a> here</a></p>
+                    <div class="toggle">
+                        <button id="switch-to-login">Switch to Login</button>
+                    </div>
+                    </div>
+                    </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+     <script>
+         const signUpform = document.getElementById("signUpform");
+          const username = document.getElementById("username");
+          const signUpemail = document.getElementById("signUpemail");
+          const signUppassword = document.getElementById("signUppassword");
+          const confirmPassword = document.getElementById("confirm-password");
+        //  sign-up form validation
+         form.addEventListener("submit", function (e) {
+             e.preventDefault();
+          checkInput();
+        });
+        
+        function checkInput() {
+            const usernameValue = username.value.trim();
+            const signUpemailValue = signUpemail.value.trim();
+            const signUppasswordValue = signUppassword.value.trim();
+            const confirmPasswordValue = confirmPassword.value.trim();   
+                // username check         
+              if (usernameValue === "") {
+                    setErrorFor(username, "Username cannot be blank");
+                  } else if (usernameValue.length < 10) {
+                        setErrorFor(username, "username must contain at least 10 character");
+                      } else {
+                            setSuccessFor(username);
+                          }
+                        // email check
+                        if (signUpemailValue === "") {
+                            setErrorFor(signUpemail, "email cannot be blank");
+                        } else if (!isEmail(signUpemailValue)) {
+                            setErrorFor(signUpemail, "please enter a valid email");
+          } else {
+              setSuccessFor(signUpemail);
+            }
+            // password check
+            if (signUppasswordValue === "") {
+                setErrorFor(signUppassword, "Password cannot be blank");
+            } else if (signUppasswordValue.length < 5) {
+                setErrorFor(signUppassword, "Password must contain atleast 5  characters");
+            } else {
+                setSuccessFor(signUppassword);
+            }
+            // confirm password check
+              if (confirmPasswordValue === "") {
+                    setErrorFor(confirmPassword, "Confirm Password cannot be blank");
+                  } else if (confirmPasswordValue!== signUppassword) {
+                        setErrorFor(confirmPassword, "Passwords do not match");
+                      } else {
+                            setSuccessFor(confirmPassword);
+                          }
+                    }
+                    function setErrorFor(input, message) {
+                        const formcontrol = input.parentElement;
+                        const small = formcontrol.querySelector("small");
+                        
+                        small.innerText = message;
+                        formcontrol.className = "form-control error";
+                    }
+                    function setSuccessFor(input) {
+                        const formcontrol = input.parentElement;
+                        formcontrol.className = "form-control success";
+                    }
+                    function isEmail(signUpemail) {
+                        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(signUpemail);
+                    }
+                   
+    </script>
+
+    <script>
+        const form = document.getElementById("login-form");
+         const email = document.getElementById("email");
+         const password = document.getElementById("password");
+
+         form.addEventListener("submit", function (e) {
+             e.preventDefault();
+          checkInput();
+        });
+        
+        function checkInput() {
+            const usernameValue = username.value.trim();
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+                
+                        // email check
+                        if (emailValue === "") {
+                            setErrorFor(email, "email cannot be blank");
+                        } else if (!isEmail(emailValue)) {
+                            setErrorFor(email, "please enter a valid email");
+          } else {
+              setSuccessFor(email);
+            }
+            // password check
+            if (passwordValue === "") {
+                setErrorFor(password, "Password cannot be blank");
+            } else if (passwordValue.length < 5) {
+                setErrorFor(password, "Password must contain atleast 5  characters");
+            } else {
+                setSuccessFor(password);
+            }
+                    }
+                    function setErrorFor(input, message) {
+                        const formcontrol = input.parentElement;
+                        const small = formcontrol.querySelector("small");
+                        
+                        small.innerText = message;
+                        formcontrol.className = "form-control error";
+                    }
+                    function setSuccessFor(input) {
+                        const formcontrol = input.parentElement;
+                        formcontrol.className = "form-control success";
+                    }
+                    function isEmail(email) {
+                        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                    }
+    </script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const menuIcon = document.getElementById("menu-icon");
+                            const menu = document.getElementById("menu");
+                            const serviceMenu = document.querySelector(".services-menu");
+                            const servicesDropdown = document.querySelector(".service-dropdown");
+                
+                            menuIcon.addEventListener("click", function() {
+                                menu.classList.toggle("open");
+                            });
+                
+                            serviceMenu.addEventListener("mouseover", function() {
+                                servicesDropdown.style.display = "block";
+                            });
+                
+                            serviceMenu.addEventListener("mouseout", function() {
+                                servicesDropdown.style.display = "none";
+                            });
+                
+                            const loginForm = document.getElementById("login-form");
+                            const signupForm = document.getElementById("signup-form");
+                            const switchToSignup = document.getElementById("switch-to-signup");
+                            const switchToLogin = document.getElementById("switch-to-login");
+                
+                            switchToSignup.addEventListener("click", function() {
+                                loginForm.style.display = "none";
+                                signupForm.style.display = "block";
+                            });
+                
+                            switchToLogin.addEventListener("click", function() {
+                                signupForm.style.display = "none";
+                                loginForm.style.display = "block";
+                            });
+                        });
+                
+                    </script>
+</body>
+</html>
